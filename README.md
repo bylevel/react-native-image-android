@@ -1,12 +1,12 @@
-# React Native Image Rotation
+# React Native Image Android
 
-A React Native module that can create rotate versions of local images.
+给 React Native Image Android 版本的 noLoad事件中加入原生图片的宽高值
 
 ## Setup
 
 First, install the package:
 ```
-npm install react-native-image-rotation
+npm i -S git+ssh://git@git.plotcup.com:27/chronos/react-native-image-android.git
 ```
 
 Then, follow those instructions:
@@ -15,23 +15,57 @@ Then, follow those instructions:
 
 #### Update your gradle files
 
-For **react-native >= v0.15**, this command will do it automatically:
+```gradle
+// android/settings.gradle
+...
+
+include ':react-native-image-android'
+project(':react-native-image-android').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-android/android')
 ```
-react-native link react-native-image-rotation
+
+```gradle
+// android/app/build.gradle
+...
+    compile project(':RNDeviceInfo')
+    compile project(':react-native-toast')
+    compile project(":react-native-image-rotation")
+    compile project(":react-native-image-android")  // <-- 插入这里
 ```
+
+```java
+// android/app/src/main/java/com/shuline/MainActivity.java
+...
+import com.learnium.RNDeviceInfo.*;
+import com.remobile.toast.*;
+import cn.chronos.rnimagerotation.ImageRotationPackage;
+import cn.chronos.image.ImageAndroidPackage;  // <-- 这里
+...
+        new VectorIconsPackage(),
+        new MainReactPackage(),
+        new ImageRotationPackage(),
+        new ImageAndroidPackage(),  // <-- 这里
+        mImagePicker);
+...
+```
+
 
 ## Usage example
 
 ```javascript
-var ImageRotation = require('react-native-image-rotation');
+import ImageAndroid from 'react-native-image-android';
+export default class NetImage extends Component {
+    _onLoad( evt ) {
+        const {onLoad} = this.props;
+        if ( evt.nativeEvent.width ) {
+            console.log(evt.nativeEvent);
+        }
 
-ImageRotation.createRotationImage(imageUri).then((rotationImageUri) => {
-  // rotationImageUri is the URI of the new image that can now be displayed, uploaded...
-});
+        onLoad && onLoad( evt );
+    }
+
+    render() {
+        return <ImageAndroid{...this.props}
+                            onLoad={ this._onLoad.bind( this ) } />;
+    }
+}
 ```
-
-## API
-
-### `promise createRotationImage(uri)`
-
-The promise resolves with a string containing the uri of the new file.
