@@ -166,6 +166,7 @@ var Image = React.createClass({
       var style = flattenStyle([{width, height}, styles.base, this.props.style]);
       var {onLoadStart, onLoad, onLoadEnd} = this.props;
 
+// TODO: 需要解决这个merge问题，这个引用的不是react-native core的那个merge，会有bug
       var nativeProps = merge(this.props, {
         style,
         shouldNotifyLoadEvents: !!(onLoadStart || onLoad || onLoadEnd),
