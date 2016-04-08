@@ -11,16 +11,11 @@
  */
 'use strict';
 
-var NativeMethodsMixin = require( 'NativeMethodsMixin' );
-var NativeModules = require( 'NativeModules' );
-var ImageResizeMode = require( 'ImageResizeMode' );
+import React, { NativeMethodsMixin, ImageResizeMode, NativeModules, StyleSheet, View } from 'react-native';
 var ImageStylePropTypes = require( 'ImageStylePropTypes' );
 var PropTypes = require( 'ReactPropTypes' );
-var React = require( 'React' );
 var ReactNativeViewAttributes = require( 'ReactNativeViewAttributes' );
-var StyleSheet = require( 'StyleSheet' );
 var StyleSheetPropType = require( 'StyleSheetPropType' );
-var View = require( 'View' );
 
 var flattenStyle = require( 'react-native/Libraries/StyleSheet/flattenStyle' );
 var invariant = require( 'invariant' );
