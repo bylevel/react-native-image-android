@@ -11,17 +11,16 @@
  */
 'use strict';
 
-import React, { NativeMethodsMixin, ImageResizeMode, NativeModules, StyleSheet, View } from 'react-native';
-var ImageStylePropTypes = require( 'ImageStylePropTypes' );
-var PropTypes = require( 'ReactPropTypes' );
-var ReactNativeViewAttributes = require( 'ReactNativeViewAttributes' );
-var StyleSheetPropType = require( 'StyleSheetPropType' );
+import React, { NativeMethodsMixin, requireNativeComponent, ImageResizeMode, NativeModules, StyleSheet, View } from 'react-native';
 
 var flattenStyle = require( 'react-native/Libraries/StyleSheet/flattenStyle' );
-var invariant = require( 'invariant' );
+var invariant = require( 'fbjs/lib/invariant' );
 var merge = require( 'react-native/Libraries/vendor/core/merge' );
-var requireNativeComponent = require( 'requireNativeComponent' );
-var resolveAssetSource = require( 'resolveAssetSource' );
+var ReactNativeViewAttributes = require( 'react-native/Libraries/Components/View/ReactNativeViewAttributes' );
+var ImageStylePropTypes = require( 'react-native/Libraries/Image/ImageStylePropTypes' );
+var resolveAssetSource = require( 'react-native/Libraries/Image/resolveAssetSource' );
+var StyleSheetPropType = require( 'react-native/Libraries/StyleSheet/StyleSheetPropType' );
+var PropTypes = React.PropTypes;
 
 /**
  * <Image> - A react component for displaying different types of images,
