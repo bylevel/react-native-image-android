@@ -1,10 +1,10 @@
 {
   "name": "react-native-image-android",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "fork出来，增加onInfo事件用于得到图片的大小",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@git.plotcup.com:27/chronos/react-native-image-android.git"
+    "url": "git+ssh://git@github.com:bylevel/react-native-image-android.git"
   },
   "keywords": [
     "react-native",
@@ -15,9 +15,9 @@
     "image-android"
   ],
   "peerDependencies": {
-    "react-native": ">=v0.20.0"
+    "react-native": ">=v0.24.0"
   },
   "author": "chronos <xielong2@qq.com> (http://blog.plotcup.com)",
   "license": "MIT",
-  "homepage": "http://git.plotcup.com/chronos/react-native-image-android"
+  "homepage": "https://github.com/bylevel/react-native-image-android"
 }
