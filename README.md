@@ -6,7 +6,7 @@
 
 First, install the package:
 ```
-npm i -S git+ssh://git@git.plotcup.com:27/chronos/react-native-image-android.git
+npm i -S git+ssh://git@github.com:bylevel/react-native-image-android.git
 ```
 
 Then, follow those instructions:
